@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=400">
+  <title>ShadowWatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-eye">
+          <div class="eye-outer">
+            <div class="eye-inner">
+              <div class="eye-pupil"></div>
+            </div>
+          </div>
+        </div>
+        <span class="logo-text">SHADOW<span class="logo-accent">WATCH</span></span>
+      </div>
+      <div class="header-right">
+        <div class="score-pill" id="score-pill">
+          <span class="score-label">RISK</span>
+          <span class="score-value" id="score-value">—</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Site Info Bar -->
+    <div class="site-bar" id="site-bar">
+      <div class="site-icon" id="site-icon">🌐</div>
+      <div class="site-info">
+        <div class="site-name" id="site-name">Loading...</div>
+        <div class="site-meta" id="site-meta">Scanning for trackers...</div>
+      </div>
+      <div class="site-pulse" id="site-pulse"></div>
+    </div>
+
+    <!-- Summary Stats -->
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card" data-cat="advertising">
+        <div class="stat-icon">📢</div>
+        <div class="stat-count" id="stat-ads">0</div>
+        <div class="stat-label">Ads</div>
+      </div>
+      <div class="stat-card" data-cat="analytics">
+        <div class="stat-icon">📊</div>
+        <div class="stat-count" id="stat-analytics">0</div>
+        <div class="stat-label">Analytics</div>
+      </div>
+      <div class="stat-card" data-cat="fingerprinting">
+        <div class="stat-icon">👆</div>
+        <div class="stat-count" id="stat-fp">0</div>
+        <div class="stat-label">Fingerprint</div>
+      </div>
+      <div class="stat-card" data-cat="data_broker">
+        <div class="stat-icon">🗃️</div>
+        <div class="stat-count" id="stat-broker">0</div>
+        <div class="stat-label">Brokers</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tab-bar">
+      <button class="tab active" data-tab="live">LIVE FEED</button>
+      <button class="tab" data-tab="history">HISTORY</button>
+      <button class="tab" data-tab="about">ABOUT</button>
+    </div>
+
+    <!-- Tab: Live Feed -->
+    <div class="tab-content active" id="tab-live">
+      <div class="feed-header">
+        <span class="feed-title" id="feed-count">Watching...</span>
+        <button class="block-btn" id="block-btn">
+          <span class="block-icon">🛡</span>
+          <span id="block-label">Block All</span>
+        </button>
+      </div>
+
+      <div class="tracker-list" id="tracker-list">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-eye">👁</div>
+          <div class="empty-title">No trackers detected yet</div>
+          <div class="empty-sub">Browse any website to see who's watching you</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: History -->
+    <div class="tab-content" id="tab-history">
+      <div class="history-chart" id="history-chart">
+        <div class="chart-title">7-DAY SURVEILLANCE ACTIVITY</div>
+        <div class="bars-container" id="bars-container"></div>
+      </div>
+      <div class="history-list" id="history-list">
+        <div class="loading-state">Loading history...</div>
+      </div>
+    </div>
+
+    <!-- Tab: About -->
+    <div class="tab-content" id="tab-about">
+      <div class="about-content">
+        <div class="about-hero">
+          <div class="about-eye-large">👁️</div>
+          <h2 class="about-title">ShadowWatch v1.0</h2>
+          <p class="about-subtitle">The watchers have been watching long enough.</p>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">WHAT IT DOES</div>
+          <p class="about-text">ShadowWatch monitors every network request your browser makes and identifies tracking companies in real time — advertising networks, data brokers, analytics platforms, fingerprinters, and more.</p>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">YOUR PRIVACY PROMISE</div>
+          <div class="privacy-pledge">
+            <div class="pledge-item">✓ All data stored locally on your device</div>
+            <div class="pledge-item">✓ Zero data transmitted to ShadowWatch servers</div>
+            <div class="pledge-item">✓ No account required</div>
+            <div class="pledge-item">✓ No ads. No telemetry. No irony.</div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <div class="about-section-title">SEVERITY LEVELS</div>
+          <div class="severity-list">
+            <div class="severity-item critical"><span class="sev-dot"></span><span><strong>Critical</strong> — Data brokers, fingerprinting</span></div>
+            <div class="severity-item high"><span class="sev-dot"></span><span><strong>High</strong> — Ad networks, social tracking</span></div>
+            <div class="severity-item medium"><span class="sev-dot"></span><span><strong>Medium</strong> — Analytics, A/B testing</span></div>
+            <div class="severity-item low"><span class="sev-dot"></span><span><strong>Low</strong> — CDN, infrastructure</span></div>
+          </div>
+        </div>
+
+        <button class="clear-btn" id="clear-btn">Clear All Stored Data</button>
+      </div>
+    </div>
+
+    <!-- Tracker Detail Drawer -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="tracker-drawer" id="tracker-drawer">
+      <div class="drawer-handle"></div>
+      <div class="drawer-content" id="drawer-content"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
