@@ -22,12 +22,6 @@
 
 <br/>
 
-[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://github.com/YOUR_USERNAME/shadowwatch/releases)
-[![Manifest V3](https://img.shields.io/badge/Manifest-V3-FF1744?style=for-the-badge&logo=google-chrome&logoColor=white)](https://developer.chrome.com/docs/extensions/mv3/)
-[![Privacy First](https://img.shields.io/badge/Privacy-First-00E676?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/YOUR_USERNAME/shadowwatch)
-[![Zero Telemetry](https://img.shields.io/badge/Zero-Telemetry-FFD600?style=for-the-badge)](https://github.com/YOUR_USERNAME/shadowwatch)
-[![License MIT](https://img.shields.io/badge/License-MIT-white?style=for-the-badge)](LICENSE)
-
 <br/>
 
 **Right now, hundreds of invisible companies are watching exactly what you're reading, buying, and thinking about — without your knowledge.**
