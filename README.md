@@ -29,11 +29,7 @@
 **ShadowWatch makes them visible. In real time. By name.**
 
 <br/>
-
-[**⬇️ Download v1.0**](https://github.com/YOUR_USERNAME/shadowwatch/releases/tag/v1.0) · [**📖 How It Works**](#how-it-works) · [**🛡 Privacy Promise**](#privacy-promise) · [**🗺 Roadmap**](#roadmap)
-
 <br/>
-
 ---
 
 </div>
